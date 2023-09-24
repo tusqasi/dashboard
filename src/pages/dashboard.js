@@ -13,7 +13,7 @@ function InfoCard({ icon, title, delta, gross }) {
 
   return (
     <>
-      <div className="flex flex-col border-2 rounded-xl pl-4 pt-4 pr-2 drop-shadow-xl bg-white w-64 h-32">
+      <div className="flex flex-col border-2 rounded-xl p-2 drop-shadow-xl bg-white w-64 h-32">
         <Image
           src={`/images/${icon}.svg`}
           width={35}
@@ -28,7 +28,7 @@ function InfoCard({ icon, title, delta, gross }) {
             </span>
           </div>
           <div className="flex justify-end items-end">
-            <span className="h-max bg-green-100 rounded-full text-sm text-green-500  font-semibold p-1 w-14 text-center">
+            <span className="h-max bg-green-100 rounded-full text-sm text-green-500 font-semibold p-1 w-14 text-center">
               +{delta}
             </span>
           </div>
@@ -41,7 +41,9 @@ function InfoCard({ icon, title, delta, gross }) {
 function Icon({ src }) {
   return (
     <>
-      <Image src={src} width={30} height={30} className="p-1" />
+      <div className="w-8 h-8">
+        <Image src={src} width={30} height={30} className="p-1" />
+      </div>
     </>
   );
 }
@@ -50,16 +52,16 @@ export default function Home() {
   return (
     <main className="flex flex-row p-10 h-screen">
       {/*sidebar*/}
-      <section className=" bg-blue-500 text-white rounded-3xl  flex flex-col justify-between w-10/12">
+      <section className=" bg-blue-500 text-white rounded-3xl  w-max flex flex-col justify-between ">
         {/* Nav options*/}
-        <div className={`p-5 ${mons.className}`}>
+        <div className={`pl-12  pr-20 ${mons.className}`}>
           <h1
             className={`text-white ${mons.className} font-bold text-4xl pb-14 pt-14 `}
           >
             Board.
           </h1>
-          <ul className="text-xl">
-            <li className="font-bold flex flex-row pb-10">
+          <ul className="text-xl w-max">
+            <li className="flex flex-row pb-10 font-bold ">
               <span className="pr-5">
                 <Icon src="/images/dashboard_icon.svg" />
               </span>
@@ -91,10 +93,10 @@ export default function Home() {
             </li>
           </ul>
         </div>
-        <div className={`${mons.className} text-sm flex flex-col p-5`}>
-          <span>Help</span>
-          <span>Contact Us</span>
-        </div>
+          <div className={`${mons.className} text-sm flex flex-col pl-12 pb-14 gap-5`}>
+            <span>Help</span>
+            <span>Contact Us</span>
+          </div>
         {/* footer section*/}
       </section>
 
