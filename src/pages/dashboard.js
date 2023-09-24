@@ -2,12 +2,15 @@ import { Montserrat, Lato, Open_Sans } from "next/font/google";
 
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 
 const mons = Montserrat({ subsets: ["latin"], display: "swap" });
 const lato = Lato({ subsets: ["latin"], display: "swap", weight: "400" });
 const o_sans = Open_Sans({ subsets: ["latin"], display: "swap" });
 
 function InfoCard({ icon, title, delta, gross }) {
+  let [profileExists, setProfileExists] = useState(false);
+
   return (
     <>
       <div className="flex flex-col border-2 rounded-xl pl-4 pt-4 pr-2 drop-shadow-xl bg-white w-64 h-32">
@@ -47,7 +50,7 @@ export default function Home() {
   return (
     <main className="flex flex-row p-10 h-screen">
       {/*sidebar*/}
-      <section className=" bg-blue-500 text-white rounded-3xl w-72 flex flex-col justify-between">
+      <section className=" bg-blue-500 text-white rounded-3xl  flex flex-col justify-between w-10/12">
         {/* Nav options*/}
         <div className={`p-5 ${mons.className}`}>
           <h1
@@ -131,26 +134,86 @@ export default function Home() {
           <div className="w-full h-full bg-green-100  ">Activities</div>
         </div>
         {/* Bottom section */}
-        <div>
-          {/* Top products*/}
-          <div>{/*pie chart*/}</div>
-          <div>
-            {/* Legends */}
-            <ul>
-              <li>
-                <div className="flex flex-row">
-                  <div>
-                    <span className="bg-green-100"></span>
-                  </div>
-                  <div className="flex flex-col">
-                    <span className={`${mons.className} font-bold`}>
-                      Basic Tees
-                    </span>
-                    <span>55%</span>
-                  </div>
+        <div className="pt-10 flex flex-row bg-red-50 ">
+          <div className="flex flex-col border-2 rounded-xl w-max h-max p-6 pl-10 drop-shadow-xl bg-white flex-1 justify-evenly">
+            {/* Top products*/}
+            <span className={`${mons.className} font-bold text-xl`}>
+              Top Products
+            </span>
+            <div className="flex flex-row">
+              <div className=""></div>
+              <div>
+                <div className="bg-red-50 w-40 h-40 rounded-full bg-gradient-conic from-red-600 to-blue-600">
+                  {" "}
                 </div>
-              </li>
-            </ul>
+              </div>
+              <div>
+                {/* Legends */}
+
+                <ul>
+                  <li>
+                    <div className="flex flex-row pb-4">
+                      <div className="p-1">
+                        <div className="bg-green-200 w-3 h-3 rounded-full"></div>
+                      </div>
+                      <div className="flex flex-col justify-start ">
+                        <span
+                          className={`${mons.className} font-bold text-sm `}
+                        >
+                          Basic Tees
+                        </span>
+                        <span className="text-[#858585] text-xs">55%</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="flex flex-row pb-4">
+                      <div className="p-1">
+                        <div className="bg-yellow-200 w-3 h-3 rounded-full"></div>
+                      </div>
+                      <div className="flex flex-col justify-start p-0">
+                        <span
+                          className={`${mons.className} font-bold text-sm `}
+                        >
+                          Custom Short Pants
+                        </span>
+                        <span className="text-[#858585] text-xs">31%</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="flex flex-row pb-4">
+                      <div className="p-1">
+                        <div className="bg-red-200 w-3 h-3 rounded-full"></div>
+                      </div>
+                      <div className="flex flex-col justify-start p-0 ">
+                        <span
+                          className={`${mons.className} font-bold text-sm `}
+                        >
+                          Super Hoodies
+                        </span>
+                        <span className="text-[#858585] text-xs">14%</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="pl-10"></div>
+          {/* Profile */}
+          <div className="flex-1">
+            <div className="flex flex-col border-2 rounded-xl w-full h-full  drop-shadow-xl bg-white justify-center items-center">
+              <div className="flex flex-col w-max h-max items-center ">
+                <Image
+                  src={`/images/profile_add.svg`}
+                  width={70}
+                  height={70}
+                  className=" bg-white pb-4"
+                />
+                <span className="text-gray-500">Add Profile</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
